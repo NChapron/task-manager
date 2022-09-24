@@ -16,10 +16,16 @@ function App() {
     });
   };
 
+  const removeTaskHandler = (taskId: string) => {
+    setTasks((previousTask) => {
+      return previousTask.filter((task) => task.id !== taskId);
+    });
+  };
+
   return (
     <div>
       <NewTask onAddTask={addTaskHandler} />
-      <Tasks items={tasks} />
+      <Tasks items={tasks} onRemoveTask={removeTaskHandler} />
     </div>
   );
 }
