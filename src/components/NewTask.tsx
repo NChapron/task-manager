@@ -1,11 +1,12 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
+import { TasksContext } from "../store/task-context";
 
 import classes from "./NewTask.module.css";
 
-const NewTask: React.FC<{ onAddTask: (text: string) => void }> = (props) => {
+const NewTask: React.FC = () => {
   const taskTextInputRef = useRef<HTMLInputElement>(null);
 
-  const { onAddTask } = props;
+  const tasksCtx = useContext(TasksContext);
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -14,7 +15,7 @@ const NewTask: React.FC<{ onAddTask: (text: string) => void }> = (props) => {
 
     if (enteredText.trim().length === 0) return;
 
-    onAddTask(enteredText);
+    tasksCtx.addTask(enteredText);
   };
 
   return (

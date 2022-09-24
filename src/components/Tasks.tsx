@@ -1,22 +1,20 @@
-import Task from "../models/task";
+import React, { useContext } from "react";
 
-import React from "react";
+import { TasksContext } from "../store/task-context";
 import TaskItem from "./TaskItem";
 
 import classes from "./Tasks.module.css";
 
-const Tasks: React.FC<{ items: Task[]; onRemoveTask: (id: string) => void }> = (
-  props
-) => {
-  const { items, onRemoveTask } = props;
+const Tasks: React.FC = () => {
+  const tasksCtx = useContext(TasksContext);
 
   return (
     <ul className={classes.tasks}>
-      {items.map((item) => (
+      {tasksCtx.items.map((item) => (
         <TaskItem
           key={item.id}
           text={item.text}
-          onRemoveTask={onRemoveTask.bind(null, item.id)}
+          onRemoveTask={tasksCtx.removeTask.bind(null, item.id)}
         />
       ))}
     </ul>
