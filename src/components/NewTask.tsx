@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 
+import classes from "./NewTask.module.css";
+
 const NewTask: React.FC<{ onAddTask: (text: string) => void }> = (props) => {
   const taskTextInputRef = useRef<HTMLInputElement>(null);
 
@@ -16,7 +18,7 @@ const NewTask: React.FC<{ onAddTask: (text: string) => void }> = (props) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={classes.form}>
       <label htmlFor="text">Task text</label>
       <input id="text" type="text" ref={taskTextInputRef} />
       <button type="submit">Add Task</button>

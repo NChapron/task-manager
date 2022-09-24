@@ -1,9 +1,10 @@
 import React from "react";
-import Task from "../models/task";
+
+import classes from "./TaskItem.module.css";
 
 const TaskItem: React.FC<{ text: string }> = (props) => {
   const { text } = props;
-  return <li>{text}</li>;
+  return <li className={classes.item}>{text}</li>;
 };
 
 export default TaskItem;
