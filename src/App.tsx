@@ -1,15 +1,24 @@
-import Tasks from "./components/Tasks";
+import { useState } from "react";
+
 import Task from "./models/task";
 
+import NewTask from "./components/NewTask";
+import Tasks from "./components/Tasks";
+
 function App() {
-  const tasks = [
-    new Task("Task One"),
-    new Task("Task Two"),
-    new Task("Task Three"),
-  ];
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const addTaskHandler = (taskText: string) => {
+    const newTask = new Task(taskText);
+
+    setTasks((previousTask) => {
+      return previousTask.concat(newTask);
+    });
+  };
 
   return (
     <div>
+      <NewTask onAddTask={addTaskHandler} />
       <Tasks items={tasks} />
     </div>
   );
