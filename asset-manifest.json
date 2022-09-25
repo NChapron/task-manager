@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nchapron/task-manager/static/css/main.629d5cd4.css",
+    "main.js": "/nchapron/task-manager/static/js/main.fe8cae45.js",
+    "index.html": "/nchapron/task-manager/index.html",
+    "main.629d5cd4.css.map": "/nchapron/task-manager/static/css/main.629d5cd4.css.map",
+    "main.fe8cae45.js.map": "/nchapron/task-manager/static/js/main.fe8cae45.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.629d5cd4.css",
+    "static/js/main.fe8cae45.js"
+  ]
+}
